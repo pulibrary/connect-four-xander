@@ -1,0 +1,142 @@
+/* General
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: burlywood;
+}
+
+/* Header
+*/
+
+h1 {
+    font-family: 'Big Shoulders Stencil Display', cursive;
+    font-size: 8vh;
+    margin-top: 1vh;
+}
+
+#instructions {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 2.5vh;
+    margin-top: 0.5vh;
+}
+
+#turn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 2.5vh;
+    margin: 1vh;
+    font-weight: 600;
+    color: rgb(0, 0, 192);
+}
+
+#score {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 1vh;
+}
+
+#blueScore {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 2.5vh;
+    font-weight: 600;
+    color: rgb(0, 0, 192);
+    margin-right: 0.5vh;
+}
+
+#redScore {
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 2.5vh;
+    font-weight: 600;
+    color: red;
+    margin-left: 0.5vh;
+}
+
+/* Game 
+*/
+
+#board {
+    background-color: rgba(0, 0, 0, 0.623);
+    margin-top: 1vh;
+    
+    display: grid;
+    grid-template-columns: repeat(7, 13vw);
+    grid-template-rows: repeat(6, 13vw);
+    column-gap: 1px;
+    row-gap: 1px;  
+
+    border-style: solid;
+    border-width: 4px;
+    border-radius: 0px 0px 10px 10px;
+    border-color: black;
+
+        
+}
+
+.slot {
+    margin: 2px;
+    background-color: burlywood;
+    border-radius: 50%;
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+}
+.slot:hover {
+    border-width: 5px;
+}
+
+#refresh {
+    margin-top: 1vh;
+    padding: 2.5px 4px 2px 4px;
+    background-color: burlywood;
+
+    border-color: black;
+    border-width: 2px;
+    border-radius: 4px;
+    border-style: solid;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;   
+    font-weight: 550;
+}
+#refresh:hover {
+    background-color: rgba(0, 0, 0, 0.623);;
+    color: white;
+    border-color: white;
+}
+
+/* Media
+*/
+
+/* Wide viewports */
+@media (min-width: 750px) {
+    #board {
+        grid-template-columns: repeat(7, 13vh);
+        grid-template-rows: repeat(6, 13vh);
+    }
+}
+
+/* Small/short viewports */
+@media (max-height: 550px) {
+    #board {
+        grid-template-columns: repeat(7, 13vh);
+        grid-template-rows: repeat(6, 13vh);
+    }
+}
