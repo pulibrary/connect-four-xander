@@ -106,11 +106,25 @@ class Game {
             }
         }
 
+        // animation
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+
         // update board
         if (this.turn) {
             // blue's turn
             this.statusGrid[row][col] = 1;
-            this.slots[row][col].style.backgroundColor = "blue";
+            
+            // animate piece
+            const blueDrop = async () => {
+                for (let currRow = 0; currRow != row; currRow++) {
+                    this.slots[currRow][col].style.backgroundColor = "blue";
+                    await delay(70);
+                    this.slots[currRow][col].style.backgroundColor = "burlywood";
+                }
+                this.slots[row][col].style.backgroundColor = "blue";
+            }
+            blueDrop();
+
             if (checkForWin(this.statusGrid, this.turn, row, col)) {
                 this.gameWon = true;
                 return 1; // blue wins
@@ -118,7 +132,18 @@ class Game {
         } else {
             // red's turn
             this.statusGrid[row][col] = 2;
-            this.slots[row][col].style.backgroundColor = "red";
+
+            // animate piece
+            const redDrop = async () => {
+                for (let currRow = 0; currRow != row; currRow++) {
+                    this.slots[currRow][col].style.backgroundColor = "red";
+                    await delay(70);
+                    this.slots[currRow][col].style.backgroundColor = "burlywood";
+                }
+                this.slots[row][col].style.backgroundColor = "red";
+            }
+            redDrop();
+
             if (checkForWin(this.statusGrid, this.turn, row, col)) {
                 this.gameWon = true;
                 return 2; // red wins
