@@ -73,7 +73,8 @@ h1 {
 */
 
 .board {
-    background-color: rgba(0, 0, 0, 0.623);
+    /*background-color: rgba(0, 0, 0, 0.623);*/
+    background: repeating-linear-gradient(-20deg, rgb(55, 0, 107), hsl(308, 86%, 16%) 30vw,rgb(55, 0, 107) 60vw);
     margin-top: 1vh;
     
     display: grid;
@@ -89,8 +90,6 @@ h1 {
     border-width: 4px;
     border-radius: 0px 0px 10px 10px;
     border-color: black;
-
-        
 }
 
 .slot {
@@ -100,6 +99,12 @@ h1 {
     border-color: black;
     border-width: 3px;
     border-style: solid;
+    opacity: 1;
+
+    animation-name: slot;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 .slot:hover {
     border-width: 5px;
@@ -121,9 +126,9 @@ h1 {
     font-size: 2.5vh;
 }
 #refresh:hover {
-    background-color: rgba(0, 0, 0, 0.623);;
-    color: white;
-    border-color: white;
+    background: repeating-linear-gradient(-20deg, rgb(55, 0, 107), hsl(308, 96%, 21%) 30vw,rgb(55, 0, 107) 60vw);
+    color: burlywood;
+    border-color: burlywood;
 }
 
 /* Media
@@ -135,4 +140,26 @@ h1 {
         grid-template-columns: repeat(7, 12vh);
         grid-template-rows: repeat(6, 12vh);
     }
+}
+
+/* Animation
+*/
+
+@keyframes slot {
+    0% {
+        border-radius: 70%;
+    }
+    25% {
+        border-radius: 40%;
+    }
+    50% {
+        border-radius: 50%;
+    }   
+    75% {
+        border-radius: 30%;
+    }
+    100% {
+        border-radius: 50%;
+    }
+    
 }
