@@ -77,8 +77,11 @@ h1 {
     margin-top: 1vh;
     
     display: grid;
+
+    /*For small vertical screens*/
     grid-template-columns: repeat(7, 13vw);
     grid-template-rows: repeat(6, 13vw);
+
     column-gap: 1px;
     row-gap: 1px;  
 
@@ -115,6 +118,7 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-style: italic;   
     font-weight: 550;
+    font-size: 2.5vh;
 }
 #refresh:hover {
     background-color: rgba(0, 0, 0, 0.623);;
@@ -125,18 +129,10 @@ h1 {
 /* Media
 */
 
-/* Wide viewports */
-@media (min-width: 750px) {
-    #board {
-        grid-template-columns: repeat(7, 13vh);
-        grid-template-rows: repeat(6, 13vh);
-    }
-}
-
-/* Small/short viewports */
-@media (max-height: 550px) {
-    #board {
-        grid-template-columns: repeat(7, 13vh);
-        grid-template-rows: repeat(6, 13vh);
+/* Horizontal */
+@media (orientation: landscape) {
+    .board {
+        grid-template-columns: repeat(7, 12vh);
+        grid-template-rows: repeat(6, 12vh);
     }
 }
